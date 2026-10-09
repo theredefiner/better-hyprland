@@ -1,0 +1,145 @@
+// ~/.config/waybar/config.jsonc  -- tuned for 1366x768, Hyprland
+// Layout: [Arch launcher pill]  [Workspaces + stats + clock pill]  [Tray pill]
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 44,
+  "margin-top": 0,
+  "margin-bottom": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 0,
+
+  "modules-left": ["custom/launcher"],
+  "modules-center": ["group/main"],
+  "modules-right": ["group/tray-pill"],
+
+  "group/main": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/workspaces",
+      "custom/spacer",
+      "memory#ram",
+      "cpu",
+      "battery",
+      "memory#swap",
+      "custom/spacer-small",
+      "clock"
+    ]
+  },
+
+  "group/tray-pill": {
+    "orientation": "horizontal",
+    "modules": ["tray", "network", "custom/notification"]
+  },
+
+  "custom/launcher": {
+    "format": "\uf303",
+    "tooltip": false,
+    "on-click": "rofi -show drun"
+  },
+
+  // =====================================================================
+  //  WORKSPACES  (transparent circles, real-colored app icons inside)
+  //
+  //  - Empty workspace  -> shows the glyph set in "format-icons" > "empty"
+  //                        (change that glyph/colour to change the workspace icon)
+  //  - Workspace w/ apps -> shows the coloured app icons from "window-rewrite"
+  //  - To add/change an app icon: edit/add a line in "window-rewrite"
+  //    (find the class with:  hyprctl clients | grep class)
+  // =====================================================================
+  "hyprland/workspaces": {
+    "format": "{icon}{windows}",
+    "format-window-separator": "",
+    "persistent-workspaces": { "*": 7 },
+    "all-outputs": true,
+    "on-click": "activate",
+
+    "format-icons": {
+      "empty": "<span foreground='#ffffff77'>\uf111</span>",
+      "default": ""
+    },
+
+    "window-rewrite-default": "<span foreground='#aaaaaa'>\uf2d0</span>",
+    "window-rewrite": {
+      "class<firefox>": "<span foreground='#ff7139'>\uf269</span>",
+      "class<org.mozilla.firefox>": "<span foreground='#ff7139'>\uf269</span>",
+      "class<google-chrome>": "<span foreground='#4285f4'>\uf268</span>",
+      "class<chromium>": "<span foreground='#4285f4'>\uf268</span>",
+      "class<brave-browser>": "<span foreground='#fb542b'>\uf268</span>",
+      "class<kitty>": "<span foreground='#e5e5e5'>\uf120</span>",
+      "class<Alacritty>": "<span foreground='#e5e5e5'>\uf120</span>",
+      "class<foot>": "<span foreground='#e5e5e5'>\uf120</span>",
+      "class<org.wezfurlong.wezterm>": "<span foreground='#8b87ff'>\uf120</span>",
+      "class<code>": "<span foreground='#3aa0ee'>\uf121</span>",
+      "class<Code>": "<span foreground='#3aa0ee'>\uf121</span>",
+      "class<thunar>": "<span foreground='#f5b942'>\uf07b</span>",
+      "class<org.gnome.Nautilus>": "<span foreground='#f5b942'>\uf07b</span>",
+      "class<discord>": "<span foreground='#5865f2'>\uf392</span>",
+      "class<vesktop>": "<span foreground='#5865f2'>\uf392</span>",
+      "class<spotify>": "<span foreground='#1db954'>\uf1bc</span>",
+      "class<org.telegram.desktop>": "<span foreground='#2aabee'>\uf2c6</span>",
+      "class<steam>": "<span foreground='#66c0f4'>\uf1b6</span>",
+      "class<obsidian>": "<span foreground='#a78bfa'>\uf249</span>"
+    }
+  },
+
+  // ---------- Stats: icon + percentage (battery = icon only) ----------
+  "memory#ram": {
+    "interval": 5,
+    "format": "<span font_size='x-large'>\uf538</span> <span rise='2000'>{percentage}%</span>",
+    "tooltip-format": "RAM: {used:0.1f} GiB / {total:0.1f} GiB"
+  },
+
+  "cpu": {
+    "interval": 3,
+    "format": "<span font_size='xx-large'>\uf2db</span> <span rise='2000'>{usage}%</span>",
+    "tooltip-format": "CPU: {usage}%"
+  },
+
+  "battery": {
+    "interval": 30,
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon}",
+    "format-charging": "<span font_size='xx-large'>\uf0e7</span>",
+    "format-plugged": "<span font_size='xx-large'>\uf1e6</span>",
+    "format-icons": ["<span font_size='xx-large'>\uf244</span>", "<span font_size='xx-large'>\uf243</span>", "<span font_size='xx-large'>\uf242</span>", "<span font_size='xx-large'>\uf241</span>", "<span font_size='xx-large'>\uf240</span>"],
+    "tooltip-format": "Battery: {capacity}% ({timeTo})"
+  },
+
+  "memory#swap": {
+    "interval": 10,
+    "format": "<span font_size='x-large'>\uf0ec</span> <span rise='2000'>{swapPercentage}%</span>",
+    "tooltip-format": "Swap: {swapUsed:0.1f} GiB / {swapTotal:0.1f} GiB"
+  },
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "custom/spacer": { "format": "", "tooltip": false },
+  "custom/spacer-small": { "format": "", "tooltip": false },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  },
+
+  "network": {
+    "format-wifi": "\uf1eb",
+    "format-ethernet": "\uf6ff",
+    "format-disconnected": "\uf6ab",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "nm-connection-editor"
+  },
+
+  "custom/notification": {
+    "format": "\uf0f3",
+    "tooltip": false,
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+  }
+}

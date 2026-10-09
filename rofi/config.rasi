@@ -1,0 +1,16 @@
+configuration {
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
+}
+
+//@theme "/usr/share/rofi/themes/sidebar-v2.rasi"
+
+//@theme "/usr/share/rofi/themes/arthur.rasi"
+
+//@theme "/home/zahin/.local/share/rofi/themes/windows11-list-dark.rasi"
+
+//@theme "/home/zahin/.local/share/rofi/themes/windows11-grid-dark.rasi"
+
+//@theme "/home/zahin/.local/share/rofi/themes/windows11-list-dark.rasi"
+
+@theme "/home/zahin/.config/rofi/win11.rasi"

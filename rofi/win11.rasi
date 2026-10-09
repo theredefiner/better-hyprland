@@ -1,0 +1,93 @@
+/* Windows 11 style start menu for rofi
+ * Dark blue -> dark purple, matches the Waybar theme */
+
+* {
+  background-color: transparent;
+  text-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  location: south west;
+  anchor: south west;
+  x-offset: 10px;
+  y-offset: -58px;
+  width: 620px;
+  padding: 24px;
+  border: 1px;
+  border-color: #ffffff2e;
+  border-radius: 18px;
+  background-color: #0c1c5444;
+  background-image: linear-gradient(to right, #0c1c5448, #261e6c48, #4a187048);
+}
+
+mainbox {
+  spacing: 18px;
+  children: [ inputbar, textbox-pinned, listview ];
+}
+
+/* Search box */
+inputbar {
+  spacing: 12px;
+  padding: 13px 18px;
+  border: 1px;
+  border-color: #ffffff30;
+  border-radius: 26px;
+  background-color: #ffffff1c;
+  children: [ prompt, entry ];
+}
+
+prompt {
+  font: "Google Sans Flex Bold 11";
+  text-color: #ffffffcc;
+}
+
+entry {
+  placeholder: "Search Apps";
+  placeholder-color: #ffffff99;
+  cursor-color: #ffffff;
+}
+
+/* "Pinned" heading */
+textbox-pinned {
+  expand: false;
+  str: "Pinned";
+  font: "Google Sans Flex Bold 11";
+  padding: 0px 4px;
+}
+
+/* App grid */
+listview {
+  columns: 5;
+  lines: 3;
+  flow: horizontal;
+  fixed-columns: true;
+  cycle: false;
+  dynamic: false;
+  scrollbar: false;
+  spacing: 6px;
+}
+
+element {
+  orientation: vertical;
+  padding: 14px 6px;
+  spacing: 8px;
+  border-radius: 12px;
+}
+
+element selected.normal {
+  background-color: #ffffff26;
+}
+
+element-icon {
+  size: 46px;
+  horizontal-align: 0.5;
+}
+
+element-text {
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+  font: "Google Sans Flex 10";
+}

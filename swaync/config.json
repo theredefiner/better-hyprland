@@ -1,0 +1,82 @@
+{
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "control-center-positionX": "right",
+  "control-center-positionY": "bottom",
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 56,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 0,
+  "control-center-width": 400,
+  "control-center-height": 660,
+  "fit-to-screen": false,
+  "cssPriority": "user",
+  "notification-window-width": 360,
+  "notification-icon-size": 48,
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  "widgets": [
+    "buttons-grid",
+    "backlight",
+    "volume",
+    "title",
+    "dnd",
+    "mpris",
+    "notifications"
+  ],
+  "widget-config": {
+    "buttons-grid": {
+      "buttons-per-row": 3,
+      "actions": [
+        {
+          "label": "\uf1eb\nWi-Fi",
+          "type": "toggle",
+          "active": true,
+          "command": "bash -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update_command": "bash -c '[[ $(nmcli radio wifi) == enabled ]] && echo true || echo false'"
+        },
+        {
+          "label": "\uf293\nBluetooth",
+          "type": "toggle",
+          "active": false,
+          "command": "bash -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && bluetoothctl power on || bluetoothctl power off'",
+          "update_command": "bash -c 'bluetoothctl show | grep -q \"Powered: yes\" && echo true || echo false'"
+        },
+        {
+          "label": "\uf186\nNight Light",
+          "type": "toggle",
+          "active": false,
+          "command": "bash -c 'if [[ $SWAYNC_TOGGLE_STATE == true ]]; then nohup hyprsunset -t 4000 >/dev/null 2>&1 & else pkill hyprsunset; fi'",
+          "update_command": "bash -c 'pgrep -x hyprsunset >/dev/null && echo true || echo false'"
+        }
+      ]
+    },
+    "backlight": {
+      "label": "\uf185",
+      "device": "intel_backlight"
+    },
+    "volume": {
+      "label": "\uf028",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true,
+      "empty-list-label": "No apps playing sound",
+      "expand-button-label": "\uf107",
+      "collapse-button-label": "\uf106"
+    },
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 48,
+      "image-radius": 14
+    }
+  }
+}

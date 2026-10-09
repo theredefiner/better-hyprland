@@ -22,12 +22,12 @@
 Ensure `git` is installed on your Arch Linux system:
 ```bash
 sudo pacman -S --needed git
-```
+``
 
 ### 2. Clone & Run Installer
 Clone the repository and execute the installation script:
 ```bash
-git clone https://github.com/theredefiner/better-hyprland.git
+git clone [https://github.com/theredefiner/better-hyprland.git](https://github.com/theredefiner/better-hyprland.git)
 cd better-hyprland
 chmod +x install.sh
 ./install.sh

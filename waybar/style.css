@@ -1,0 +1,165 @@
+/* ~/.config/waybar/style.css  -- tuned for 1366x768 */
+
+* {
+  font-family: "Google Sans Flex", "Google Sans Flex 9pt", "Google Sans Flex 24pt", "Google Sans", "Symbols Nerd Font Mono", "JetBrainsMono Nerd Font Mono", sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background: transparent;
+  color: #ffffff;
+}
+
+window#waybar > box {
+  background: transparent;
+}
+
+/* ---------- Shared pill look: yellow -> pink, semi-transparent for frosted blur ---------- */
+#custom-launcher,
+#main,
+#tray-pill {
+  background-image: linear-gradient(
+    to right,
+    rgba(12, 28, 84, 0.45) 0%,
+    rgba(38, 30, 108, 0.45) 50%,
+    rgba(74, 24, 112, 0.45) 100%
+  );
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* ---------- Left pill: Arch / rofi opener ---------- */
+#custom-launcher {
+  min-width: 44px;
+  padding: 0 14px;
+  margin: 0 12px 0 0;
+  font-size: 28px;
+  color: #1793d1;
+}
+
+#custom-launcher:hover {
+  color: #0f6fa0;
+}
+
+/* ---------- Center pill (~940px wide, auto from content) ---------- */
+#main {
+  padding: 0 16px;
+}
+
+/* Pushes RAM/CPU/BAT/SWAP/clock to the right side of the pill.
+   Increase/decrease this to widen/narrow the pill. */
+#custom-spacer {
+  min-width: 240px;
+}
+
+#custom-spacer-small {
+  min-width: 20px;
+}
+
+#workspaces {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* Transparent circles, always perfectly round (fixed equal width/height) */
+#workspaces button {
+  background: transparent;
+  color: #ffffff;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0;
+  margin: 5px 3px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 22px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button label {
+  padding: 0;
+  margin: 0;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+#workspaces button.urgent {
+  background: rgba(229, 72, 77, 0.35);
+}
+
+#memory,
+#cpu,
+#battery,
+#clock {
+  background: transparent;
+  color: #ffffff;
+  padding: 0 10px;
+  margin: 0;
+}
+
+#clock {
+  font-size: 16px;
+  padding-left: 12px;
+}
+
+#battery.warning:not(.charging) { color: #ffb347; }
+#battery.critical:not(.charging) { color: #ff6b6b; }
+#battery.charging,
+#battery.plugged { color: #4ade80; }
+
+/* ---------- Right pill: tray + wifi + bell ---------- */
+#tray-pill {
+  padding: 0 14px;
+  margin: 0 0 0 12px;
+}
+
+#tray,
+#network,
+#custom-notification {
+  background: transparent;
+  color: #ffffff;
+  padding: 0 7px;
+  margin: 0;
+}
+
+#custom-notification {
+  font-size: 22px;
+}
+
+#network.disconnected { color: #ff6b6b; }
+
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+tooltip {
+  background: rgba(20, 20, 60, 0.92);
+  border: 1px solid rgba(160, 120, 255, 0.6);
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+tooltip label {
+  color: #ffffff;
+}
+
+/* Icon-only modules: medium-large icons */
+#battery {
+  font-size: 14px;
+}
+
+#network {
+  font-size: 20px;
+}
