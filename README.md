@@ -1,4 +1,4 @@
-# 🌸 Better Hyprland v0.1 Beta
+#  Better Hyprland v0.8 Beta
 
 > A modern, slick, and polished desktop environment experience built for barebones Hyprland on Arch Linux. Featuring frosted glass blur, smooth slide animation curves, custom floating pill bars, and a macOS/Android-inspired Control Center.
 
