@@ -62,7 +62,7 @@ chmod +x install.sh
 
 | Keybinding | Action |
 | :--- | :--- |
-| `Super` | Toggle Start Menu (Rofi Launcher) |
+| `Super` | Toggle Start Menu|
 | `Super` + `Q` | Launch Terminal |
 | `Super` + `C` | Close Active App / Window |
 | `Super` + `P` | Exit Hyprland (Logout Session) |
@@ -71,7 +71,7 @@ chmod +x install.sh
 | `Super` + `Alt` + `Space` | Toggle Floating Mode |
 | `Super` + `Shift` + `S` | Screen Snip (Copies capture directly to clipboard) |
 | `Super` + `S` | Toggle Special Workspace |
-| `Super` + `N` | Open Notification & Quick Settings Panel (SwayNC) |
+| `Super` + `N` | Open Side Panel Shell (e.g. Quick Settings, Media) |
 | `Super` + `Shift` + `Left` / `Right` | Move Active Window to Left / Right Workspace |
 | `Super` + `1-9` | Switch to Workspace Number |
 | `Super` + `Space`| Open Emoji picker app
@@ -87,10 +87,12 @@ Currently, you need to directly edit the Python source files inside ~/.config/be
 
 ## ❤️ Developer Message & Support
 
-Thank you for checking out my dotfiles! If you enjoy this project, please consider leaving a ⭐ on GitHub or dropping a message to show your support:
+Thank you for checking out my dotfiles! If you enjoy this project, please consider leaving a ⭐ (star) on GitHub or dropping a message to show your support:
 
 - 💬 **Telegram:** [@Zakirul_zahin](https://t.me/Zakirul_zahin)
 - 📸 **Instagram:** [@zakirulzahin](https://instagram.com/zakirulzahin)
-- 
+- 🐛 **Report Issues:** Open an issue on GitHub if you encounter bugs or setup glitches.
+- 🔀 **Submit Pull Requests:** Feel free to fork the repo and submit PRs for improvements or new widgets.
+  
 
 *Happy Ricing!* 🚀
